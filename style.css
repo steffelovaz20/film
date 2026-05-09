@@ -145,28 +145,6 @@ header {
     font-weight: 700;
 }
 
-.genre-grid {
-    display: grid;
-    /* Změna: Nastavíme pevně 4 sloupce pro širší obrazovky */
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 20px;
-    padding: 50px 5%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Aby to na mobilech nevypadalo špatně, přidáme tuhle podmínku: */
-@media (max-width: 900px) {
-    .genre-grid {
-        grid-template-columns: repeat(2, 1fr); /* Na tabletech 2x2 */
-    }
-}
-
-@media (max-width: 600px) {
-    .genre-grid {
-        grid-template-columns: 1fr; /* Na mobilech pod sebou */
-    }
-}
 
 /* 7. HLAVNÍ STRÁNKA - MŘÍŽKA ŽÁNRŮ */
 .genre-grid {
