@@ -1,4 +1,4 @@
-/* Definice barev a základní reset */
+/* 1. DEFINICE BAREV A RESET */
 :root {
     --cerna: #000000;
     --bila: #ffffff;
@@ -18,16 +18,18 @@ body {
     line-height: 1.4;
 }
 
-/* Navigace */
+/* 2. NAVIGACE */
 header {
     background-color: var(--cerna);
     padding: 20px 5%;
 }
 
-nav {
+.header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .logo {
@@ -62,27 +64,88 @@ nav {
     color: var(--ruzova);
 }
 
-/* Hero sekce */
-.hero {
-    text-align: center;
-    padding: 100px 20px;
-    background-color: var(--ruzova);
-    color: var(--cerna);
+/* 3. PODSTRÁNKY - ROZVRŽENÍ */
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
 }
 
-.hero h1 {
+.page-title {
+    margin-bottom: 40px;
+}
+
+.page-title h1 {
     font-size: 60px;
     text-transform: uppercase;
-    font-weight: 800;
+    font-weight: 900;
+}
+
+.category-tag {
+    color: var(--ruzova);
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* 4. SEZNAM FILMŮ */
+.movie-list {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.movie-item {
+    display: flex;
+    align-items: center;
+    background: var(--bila);
+    border: 5px solid var(--cerna);
+    padding: 40px;
+    box-shadow: 15px 15px 0px var(--ruzova);
+}
+
+/* 5. PLAKÁTY - TADY JE TO SJEDNOCENÍ */
+.movie-poster {
+    width: 280px !important;
+    height: 400px !important;
+    border: 5px solid var(--cerna);
+    box-shadow: 8px 8px 0px var(--cerna);
+    flex-shrink: 0;
+    overflow: hidden;
+    margin-right: 60px; /* Mezera od textu */
+}
+
+.movie-poster img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Ořízne vsem.jpg, aby seděl k ostatním */
+    object-position: center;
+    display: block;
+}
+
+/* 6. TEXTY U FILMŮ */
+.movie-info {
+    flex-grow: 1;
+}
+
+.movie-info h2 {
+    font-size: 40px;
+    text-transform: uppercase;
     margin-bottom: 10px;
+    line-height: 1;
 }
 
-.hero p {
+.movie-desc {
     font-size: 20px;
-    font-weight: 400;
+    margin: 15px 0;
 }
 
-/* Mřížka žánrů */
+.rating {
+    font-weight: 700;
+}
+
+/* 7. HLAVNÍ STRÁNKA - MŘÍŽKA ŽÁNRŮ */
 .genre-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -99,7 +162,7 @@ nav {
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transition: transform 0.3s ease;
     border-radius: 5px;
 }
 
@@ -111,168 +174,35 @@ nav {
 
 .genre-card:hover {
     transform: translateY(-10px);
-    background-color: #1a1a1a;
 }
 
-/* Patička */
+/* 8. PATIČKA */
 footer {
     text-align: center;
     padding: 40px;
-    font-size: 14px;
-    background-color: var(--bila);
     border-top: 1px solid var(--ruzova);
 }
 
-/* Responzivita pro mobily */
-@media (max-width: 900px) {
-    .genre-grid {
-        grid-template-columns: repeat(2, 1fr); /* Na tabletech 2x2 */
-    }
-}
-
-@media (max-width: 600px) {
-    .genre-grid {
-        grid-template-columns: 1fr; /* Na mobilech pod sebou */
-    }
-}
-
-/* 1. Zajištění, aby podstránky nebyly jen vlevo a malé */
-.content-wrapper {
-    max-width: 1200px;  /* Stejná šířka jako na hlavní stránce */
-    margin: 0 auto;     /* Vycentrování na střed */
-    padding: 60px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Vše pod sebou na střed */
-}
-
-/* 2. Stylování sekce se seznamem filmů */
-.movie-list {
-    width: 100%;        /* Seznam zabere celou šířku wrapperu */
-    display: flex;
-    flex-direction: column;
-    gap: 50px;          /* Mezery mezi jednotlivými filmy */
-    margin-top: 40px;
-}
-
-/* 3. Stylování samotné karty filmu (toho boxu) */
-.movie-item {
-    display: flex;
-    width: 100%;        /* Box se roztáhne na celou šířku */
-    background: #ffffff;
-    border: 5px solid #000000; /* Silný černý rám */
-    padding: 40px;
-    box-shadow: 15px 15px 0px #ffc6c6; /* Růžový stín jako na GirlsLife */
-    align-items: center;
-    min-height: 250px;
-}
-
-/* 4. Úprava textu uvnitř boxu */
-.movie-info {
-    text-align: left;
-    width: 100%;
-}
-
-.movie-info h2 {
-    font-size: 40px;    /* Pořádně velký nadpis filmu */
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    line-height: 1;
-}
-
-.movie-desc {
-    font-size: 20px;    /* Větší text popisku */
-    line-height: 1.5;
-    margin: 15px 0;
-}
-
-/* 5. Velké číslo na boku */
-.movie-number {
-    font-size: 100px;
-    font-weight: 900;
-    color: #000;
-    opacity: 0.1;       /* Jemné šedé číslo v pozadí */
-    margin-right: 40px;
-    line-height: 1;
-}
-
-/* Responzivita: Aby to na mobilu nebylo moc široké */
-@media (max-width: 768px) {
-    .movie-item {
-        flex-direction: column; /* Na mobilu číslo nad textem */
-        text-align: center;
-    }
-    .movie-number {
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
-    .page-title h1 {
-        font-size: 50px;
-    }
-	/* Celá karta filmu */
-.movie-item {
-    display: flex;
-    align-items: center; /* Zarovná plakát a text na středovou osu */
-    width: 100%;
-    background: #ffffff;
-    border: 5px solid #000000;
-    margin-bottom: 60px;
-    padding: 30px; /* Vnitřní prostor karty */
-    box-shadow: 15px 15px 0px #ffc6c6;
-    position: relative;
-    overflow: hidden; /* Aby plakát neutíkal z borderu */
-}/* Samotný plakát (posunutý víc doleva) */ .movie-poster {     width: 280px;           height: 400px;          border: 4px solid #000;     flex-shrink: 0;         box-shadow: 8px 8px 0px #000;     overflow: hidden;     display: flex;          /* Tady je ten trik: záporný margin ho posune víc k levému okraji */     /* A velký margin-right vytvoří mezeru od nápisu vpravo */     margin-left: 0px;      margin-right: 80px; /* Tohle vytvoří tu obrovskou mezeru, co potřebujeme */ }  .movie-poster img {     width: 100%;     height: 100%;     object-fit: cover; }
-/* Kontejner pro plakát - MUSÍ mít pevný rozměr */
-.movie-poster {
-    width: 280px !important;  /* !important zajistí, že se to nepřepíše */
-    height: 400px !important; 
-    border: 5px solid #000;
-    box-shadow: 10px 10px 0px #000;
-    flex-shrink: 0;
-    overflow: hidden;         /* Všechno, co přečnívá, se uřízne */
-    margin-right: 60px;
-    display: block;           /* Změna na block pro lepší kontrolu */
-    padding: 0 !important;    /* Žádné vnitřní okraje */
-}
-
-/* Samotný obrázek uvnitř - MUSÍ se přizpůsobit kontejneru */
-.movie-poster img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important; /* Tohle je nejdůležitější - ořízne boky, aby seděl */
-    object-position: center;      /* Zaměří se na střed plakátu */
-    display: block;
-}
-
-	
-}
-
-/* Blok s textem */
-.movie-info {
-    flex-grow: 1;
-    text-align: left;
-}
-
-.movie-info h2 {
-    font-size: 45px; /* Pořádně velký nápis */
-    font-weight: 900;
-    line-height: 1;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-}
-
-/* Responzivita pro mobily (aby to tam nevypadalo divně) */
+/* 9. RESPONZIVITA (MOBILY) */
 @media (max-width: 900px) {
     .movie-item {
         flex-direction: column;
+        text-align: center;
         padding: 20px;
     }
+
     .movie-poster {
         margin-right: 0;
-        margin-bottom: 30px;
-        width: 100%;
-        max-width: 300px;
+        margin-bottom: 20px;
+        width: 100% !important;
+        max-width: 280px;
     }
-}
-}
+
+    .genre-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .page-title h1 {
+        font-size: 40px;
+    }
 }
