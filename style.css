@@ -217,4 +217,10 @@ footer {
     margin: 0 0 15px 0;       /* Odstraní přebytečné mezery a přidá malou pod nadpis */
     font-size: 2.5rem;        /* Velikost nadpisu */
     text-transform: uppercase; /* Všechna písmena velká, pokud chceš */
+}.genre-grid {
+    display: flex;            /* Seřadí kartičky vedle sebe */
+    justify-content: center;  /* Vycentruje celou skupinu kartiček */
+    gap: 20px;                /* Mezera mezi kartičkami */
+    padding: 40px 20px;       /* Mezera mezi růžovým blokem a kartičkami */
+    flex-wrap: wrap;          /* Pokud se nevejdou vedle sebe, skočí na další řádek */
 }
