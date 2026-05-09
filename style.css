@@ -206,4 +206,15 @@ footer {
     .page-title h1 {
         font-size: 40px;
     }
+} .hero {
+    background-color: #F8C8DC; /* Tady nastavíš tu růžovou barvu */
+    text-align: center;       /* Tohle hodí nadpis i text na střed */
+    padding: 60px 20px;       /* Vytvoří prostor nad a pod textem */
+    width: 100%;              /* Aby růžová byla přes celou šířku */
+}
+
+.hero h1 {
+    margin: 0 0 15px 0;       /* Odstraní přebytečné mezery a přidá malou pod nadpis */
+    font-size: 2.5rem;        /* Velikost nadpisu */
+    text-transform: uppercase; /* Všechna písmena velká, pokud chceš */
 }
